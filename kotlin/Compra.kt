@@ -12,7 +12,7 @@ abstract class Compra (
 
     override fun paisResidente(pais: String) {
         when {
-            (pais.toUpperCase() != "BRASIL") && (pais.toUpperCase() != "ARGENTINA") -> {
+            (pais.uppercase() != "BRASIL") && (pais.uppercase() != "ARGENTINA") -> {
                 println("País inválido.")
             }
             else -> {

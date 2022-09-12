@@ -25,20 +25,19 @@ private fun validacaoTipoPagamento(escolha: Int, valor: Double, pais: String) {
         escolha == 1 -> {
             tipo = "Débito"
             var debito = Debito(escolhaTransacao = tipo, valorTransacao = valor)
-            println(debito.exibir())
+            println(debito.paisResidente(pais))
         }
 
         escolha == 2 -> {
             tipo = "Crédito"
             var credito = Credito(escolhaTransacao = tipo, valorTransacao = valor)
-            println(credito.exibir())
+            println(credito.paisResidente(pais))
         }
 
         escolha == 3 -> {
             tipo = "Tarja"
             var tarja = Tarja(escolhaTransacao = tipo, valorTransacao = valor)
             tarja.paisResidente(pais)
-            println(tarja.exibir())
         }
 
         else -> {

@@ -19,31 +19,43 @@ fun main() {
     validacaoTipoPagamento(escolha, valor, pais)
 }
 
+private fun validacaoValor(valor: Double) : Boolean {
+    when {
+        valor <= 0 -> {
+            println("Valor invalido.")
+            return false
+        }
+        else -> return true
+    }
+}
+
 private fun validacaoTipoPagamento(escolha: Int, valor: Double, pais: String) {
     var tipo: String
-    when {
-        escolha == 1 -> {
-            tipo = "Débito"
-            var debito = Debito(escolhaTransacao = tipo, valorTransacao = valor)
-            println(debito.paisResidente(pais))
-        }
+    if (validacaoValor(valor)) {
+        when {
+            escolha == 1 -> {
+                tipo = "Débito"
+                var debito = Debito(escolhaTransacao = tipo, valorTransacao = valor)
+                println(debito.paisResidente(pais))
+            }
 
-        escolha == 2 -> {
-            tipo = "Crédito"
-            var credito = Credito(escolhaTransacao = tipo, valorTransacao = valor)
-            println(credito.paisResidente(pais))
-        }
+            escolha == 2 -> {
+                tipo = "Crédito"
+                var credito = Credito(escolhaTransacao = tipo, valorTransacao = valor)
+                println(credito.paisResidente(pais))
+            }
 
-        escolha == 3 -> {
-            tipo = "Tarja"
-            var tarja = Tarja(escolhaTransacao = tipo, valorTransacao = valor)
-            tarja.paisResidente(pais)
-        }
+            escolha == 3 -> {
+                tipo = "Tarja"
+                var tarja = Tarja(escolhaTransacao = tipo, valorTransacao = valor)
+                tarja.paisResidente(pais)
+            }
 
-        else -> {
-            println("Forma de pagamento inválida.")
-            main()
-        }
+            else -> {
+                println("Forma de pagamento inválida.")
+                main()
+            }
 
+        }
     }
 }

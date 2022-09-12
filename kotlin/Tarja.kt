@@ -5,7 +5,7 @@ class Tarja (
 ): Compra (
     escolhaTransacao = escolhaTransacao,
     valorTransacao = valorTransacao
-), Pais {
+) {
     var entrada = Scanner(System.`in`)
     override fun paisResidente(pais: String) {
         when {
@@ -14,7 +14,12 @@ class Tarja (
                 val CVV: String = entrada.nextLine()
                 println("Insira seu DNI: ")
                 val DNI: String = entrada.nextLine()
+                println(exibir())
             }
+            pais != "Brasil" -> {
+                println("País inválido, insira novamente.")
+            }
+            else -> println(exibir())
         }
     }
 }

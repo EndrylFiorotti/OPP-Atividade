@@ -14,7 +14,11 @@ class Tarja (
                 val CVV: String = entrada.nextLine()
                 println("Insira seu DNI: ")
                 val DNI: String = entrada.nextLine()
-                println(exibir())
+                if (CVV.length == 0 || DNI.length == 0) {
+                    println("Os campos precisam ser preenchidos.")
+                } else {
+                    println(exibir())
+                }
             }
             pais != "Brasil" -> {
                 println("País inválido, insira novamente.")
